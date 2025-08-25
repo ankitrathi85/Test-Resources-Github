@@ -1,0 +1,78 @@
+<section class="search-header">
+    <div class="container">
+        <h1>🔍 Advanced Search</h1>
+        <p>Find the perfect test automation tool for your needs</p>
+    </div>
+</section>
+
+<section class="search-filters">
+    <div class="container">
+        <div class="search-form">
+            <div class="search-input-group">
+                <input type="text" id="searchInput" placeholder="Search repositories..." class="search-input">
+                <button id="searchBtn" class="btn btn-primary">Search</button>
+            </div>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        {{CATEGORY_OPTIONS}}
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Language</label>
+                    <select id="languageFilter">
+                        <option value="">All Languages</option>
+                        {{LANGUAGE_OPTIONS}}
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Quality Grade</label>
+                    <select id="gradeFilter">
+                        <option value="">All Grades</option>
+                        <option value="A+">A+ Grade</option>
+                        <option value="A">A Grade</option>
+                        <option value="B">B Grade</option>
+                        <option value="C">C Grade</option>
+                        <option value="D">D Grade</option>
+                        <option value="F">F Grade</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Sort By</label>
+                    <select id="sortFilter">
+                        <option value="score">Quality Score</option>
+                        <option value="stars">Stars</option>
+                        <option value="forks">Forks</option>
+                        <option value="updated">Last Updated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="search-results">
+    <div class="container">
+        <div class="results-header">
+            <h2 id="resultsCount">All Repositories</h2>
+            <div class="view-toggle">
+                <button id="gridView" class="view-btn active">Grid</button>
+                <button id="listView" class="view-btn">List</button>
+            </div>
+        </div>
+        
+        <div class="repo-grid" id="searchResults">
+            {{SEARCH_RESULTS}}
+        </div>
+    </div>
+</section>
+
+<script>
+    window.repositoriesData = {{REPOSITORIES_JSON}};
+</script>

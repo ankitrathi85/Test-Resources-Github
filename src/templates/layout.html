@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="stylesheet" href="{{CSS_PATH}}">
+    <link rel="icon" type="image/x-icon" href="{{BASE_PATH}}assets/favicon.ico">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="{{BASE_PATH}}index.html" class="brand-link">
+                        <span class="brand-icon">🧪</span>
+                        <span class="brand-text">Test Automation Resources</span>
+                    </a>
+                </div>
+                <div class="navbar-menu" id="navbar-menu">
+                    <a href="{{BASE_PATH}}index.html" class="nav-link">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Categories</a>
+                        <div class="dropdown-menu">
+                            {{CATEGORY_LINKS}}
+                        </div>
+                    </div>
+                    <a href="{{BASE_PATH}}search.html" class="nav-link">Search</a>
+                    <a href="{{BASE_PATH}}about.html" class="nav-link">About</a>
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <button class="navbar-toggle" id="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        {{CONTENT}}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Test Automation Resources</h3>
+                    <p>Curated collection of high-quality test automation tools and frameworks from GitHub.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        {{FOOTER_CATEGORY_LINKS}}
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{BASE_PATH}}search.html">Advanced Search</a></li>
+                        <li><a href="{{BASE_PATH}}about.html">Methodology</a></li>
+                        <li><a href="https://github.com">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Test Automation Resources. Data sourced from GitHub. Last updated: {{LAST_UPDATED}}</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{BASE_PATH}}assets/js/main.js"></script>
+    {{ADDITIONAL_JS}}
+</body>
+</html>

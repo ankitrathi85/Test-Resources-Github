@@ -1,0 +1,41 @@
+{
+  "name": "test-automation-resources",
+  "version": "1.0.0",
+  "description": "A comprehensive scanner and website generator for test automation resources on GitHub",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "scan": "node src/scanner.js",
+    "generate": "node src/generator.js",
+    "build": "npm run scan && npm run generate",
+    "dev": "npm run build && http-server dist -p 8080",
+    "test": "jest",
+    "lint": "eslint src/**/*.js"
+  },
+  "keywords": [
+    "test-automation",
+    "github",
+    "selenium",
+    "playwright",
+    "cypress",
+    "testing"
+  ],
+  "author": "Test Automation Resource Scanner",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "fs-extra": "^11.1.1",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

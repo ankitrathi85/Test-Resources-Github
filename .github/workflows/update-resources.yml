@@ -1,0 +1,76 @@
+name: Update Test Automation Resources
+
+on:
+  schedule:
+    - cron: '0 2 */3 * *'  # Every 3 days at 2 AM UTC
+  workflow_dispatch:        # Manual trigger
+  push:
+    branches: [main]
+    paths: ['src/**', 'package.json']  # Only run when code changes
+
+jobs:
+  scan-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Create .env file
+        run: |
+          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" > .env
+          echo "RATE_LIMIT_DELAY=2000" >> .env
+          echo "MIN_STARS=10" >> .env
+          echo "MAX_AGE_MONTHS=18" >> .env
+          echo "OUTPUT_DIR=dist" >> .env
+        
+      - name: Scan GitHub repositories
+        run: npm run scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Generate static website
+        run: npm run generate
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Backup job to handle failures gracefully
+  notify-failure:
+    needs: scan-and-deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify on failure
+        run: |
+          echo "❌ Resource scan and deployment failed"
+          echo "Check the logs for more details"
+          exit 1

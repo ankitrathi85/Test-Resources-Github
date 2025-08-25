@@ -1,0 +1,28 @@
+<div class="category-card">
+    <div class="category-header">
+        <div class="category-icon">{{ICON}}</div>
+        <h3 class="category-title">{{NAME}}</h3>
+        <div class="category-count">{{REPO_COUNT}} repositories</div>
+    </div>
+    
+    <p class="category-description">{{DESCRIPTION}}</p>
+    
+    <div class="category-languages">
+        {{LANGUAGES}}
+    </div>
+    
+    <div class="category-stats">
+        <div class="stat">
+            <span class="stat-label">Avg Score:</span>
+            <span class="stat-value">{{AVG_SCORE}}</span>
+        </div>
+        <div class="stat">
+            <span class="stat-label">Top Grade:</span>
+            <div class="grade-badge grade-{{TOP_GRADE_CLASS}}">{{TOP_GRADE}}</div>
+        </div>
+    </div>
+    
+    <div class="category-actions">
+        <a href="{{CATEGORY_URL}}" class="btn btn-primary">Explore {{NAME}}</a>
+    </div>
+</div>

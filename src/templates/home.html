@@ -1,0 +1,82 @@
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Test Automation Resources</h1>
+            <p class="hero-subtitle">Discover the best test automation tools and frameworks, quality-scored and categorized</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">{{TOTAL_REPOS}}</span>
+                    <span class="stat-label">Repositories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{TOTAL_STARS}}</span>
+                    <span class="stat-label">Total Stars</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">{{AVG_SCORE}}</span>
+                    <span class="stat-label">Avg Quality Score</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#categories" class="btn btn-primary">Explore Categories</a>
+                <a href="search.html" class="btn btn-secondary">Advanced Search</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="top-repositories">
+    <div class="container">
+        <h2 class="section-title">🏆 Top Rated Repositories</h2>
+        <div class="repo-grid">
+            {{TOP_REPOSITORIES}}
+        </div>
+        <div class="section-footer">
+            <a href="search.html?sort=score" class="btn btn-outline">View All Repositories</a>
+        </div>
+    </div>
+</section>
+
+<section id="categories" class="categories">
+    <div class="container">
+        <h2 class="section-title">📂 Browse by Category</h2>
+        <div class="category-grid">
+            {{CATEGORY_CARDS}}
+        </div>
+    </div>
+</section>
+
+<section class="quality-grades">
+    <div class="container">
+        <h2 class="section-title">📊 Quality Distribution</h2>
+        <div class="grade-chart">
+            <canvas id="gradeChart" width="400" height="200"></canvas>
+        </div>
+        <div class="grade-legend">
+            <div class="grade-item">
+                <span class="grade-badge grade-a-plus">A+</span>
+                <span>Exceptional (90-100)</span>
+            </div>
+            <div class="grade-item">
+                <span class="grade-badge grade-a">A</span>
+                <span>High Quality (80-89)</span>
+            </div>
+            <div class="grade-item">
+                <span class="grade-badge grade-b">B</span>
+                <span>Good (70-79)</span>
+            </div>
+            <div class="grade-item">
+                <span class="grade-badge grade-c">C</span>
+                <span>Average (60-69)</span>
+            </div>
+            <div class="grade-item">
+                <span class="grade-badge grade-d">D</span>
+                <span>Below Average (50-59)</span>
+            </div>
+            <div class="grade-item">
+                <span class="grade-badge grade-f">F</span>
+                <span>Poor (0-49)</span>
+            </div>
+        </div>
+    </div>
+</section>

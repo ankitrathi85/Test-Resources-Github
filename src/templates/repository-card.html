@@ -1,0 +1,49 @@
+<div class="repository-card">
+    <div class="repo-header">
+        <div class="repo-title">
+            <h3><a href="{{REPO_URL}}" target="_blank" rel="noopener">{{REPO_NAME}}</a></h3>
+            <div class="repo-meta">
+                <span class="repo-owner">{{REPO_OWNER}}</span>
+                <span class="repo-language">{{LANGUAGE}}</span>
+            </div>
+        </div>
+        <div class="quality-score">
+            <div class="score-badge grade-{{GRADE_CLASS}}">{{GRADE}}</div>
+            <div class="score-number">{{SCORE}}/100</div>
+        </div>
+    </div>
+    
+    <p class="repo-description">{{DESCRIPTION}}</p>
+    
+    <div class="repo-stats">
+        <div class="stat-item">
+            <span class="stat-icon">⭐</span>
+            <span class="stat-value">{{STARS}}</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-icon">🍴</span>
+            <span class="stat-value">{{FORKS}}</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-icon">📅</span>
+            <span class="stat-value">{{LAST_UPDATED}}</span>
+        </div>
+        {{#if HAS_ISSUES}}
+        <div class="stat-item">
+            <span class="stat-icon">🐛</span>
+            <span class="stat-value">{{ISSUES}}</span>
+        </div>
+        {{/if}}
+    </div>
+    
+    <div class="repo-tags">
+        {{TOPICS}}
+    </div>
+    
+    <div class="repo-actions">
+        <a href="{{DETAIL_URL}}" class="btn btn-sm btn-outline">View Details</a>
+        <a href="{{REPO_URL}}" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
+            View on GitHub
+        </a>
+    </div>
+</div>
