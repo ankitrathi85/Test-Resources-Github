@@ -9,7 +9,7 @@
     "generate": "node src/generator.js",
     "build": "npm run scan && npm run generate",
     "dev": "npm run build && http-server dist -p 8080",
-    "test": "jest",
+    "test": "node test.js",
     "lint": "eslint src/**/*.js"
   },
   "keywords": [
