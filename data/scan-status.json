@@ -1,13 +1,14 @@
 {
-  "lastScannedCategory": "web-automation",
+  "lastScannedCategory": "test-frameworks",
   "completedCategories": [
     "mobile-automation",
     "api-testing",
     "unit-testing",
     "performance-testing",
-    "web-automation"
+    "web-automation",
+    "test-frameworks"
   ],
   "currentCycle": 4,
   "lastFullScan": "2025-08-26T02:55:15.887Z",
-  "lastScanTime": "2025-08-26T22:24:31.241Z"
+  "lastScanTime": "2025-08-26T22:29:51.263Z"
 }
