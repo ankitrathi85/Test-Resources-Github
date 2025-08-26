@@ -33403,7 +33403,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:03:48.764Z",
+    "scannedAt": "2025-08-26T01:22:43.486Z",
     "qualityScore": {
       "total": 96,
       "grade": "A+",
@@ -33493,7 +33493,7 @@
             "state": "uploaded",
             "size": 36648899,
             "digest": "sha256:9ef1235bd8f64f3dfc86d36e72b1260ad3f4f0ef2860203dbbc0fb3b7bfdc554",
-            "download_count": 1,
+            "download_count": 2,
             "created_at": "2025-08-26T00:17:49Z",
             "updated_at": "2025-08-26T00:17:51Z",
             "browser_download_url": "https://github.com/SeleniumHQ/selenium/releases/download/nightly/selenium-java-4.36.0-SNAPSHOT.zip"
@@ -33529,7 +33529,7 @@
             "state": "uploaded",
             "size": 44189101,
             "digest": "sha256:d89d0fa686890ab5f260429023aa022a8fe004d29669e104d411e9eab2082421",
-            "download_count": 3,
+            "download_count": 4,
             "created_at": "2025-08-26T00:17:51Z",
             "updated_at": "2025-08-26T00:17:54Z",
             "browser_download_url": "https://github.com/SeleniumHQ/selenium/releases/download/nightly/selenium-server-4.36.0-SNAPSHOT.jar"
@@ -33709,7 +33709,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:03:53.462Z",
+    "scannedAt": "2025-08-26T01:22:48.170Z",
     "qualityScore": {
       "total": 81,
       "grade": "A",
@@ -33910,7 +33910,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:03:57.903Z",
+    "scannedAt": "2025-08-26T01:22:52.651Z",
     "qualityScore": {
       "total": 67,
       "grade": "C",
@@ -34003,16 +34003,16 @@
     "releases_url": "https://api.github.com/repos/apify/crawlee/releases{/id}",
     "deployments_url": "https://api.github.com/repos/apify/crawlee/deployments",
     "created_at": "2016-08-26T18:35:03Z",
-    "updated_at": "2025-08-26T00:14:18Z",
+    "updated_at": "2025-08-26T01:09:44Z",
     "pushed_at": "2025-08-26T00:08:31Z",
     "git_url": "git://github.com/apify/crawlee.git",
     "ssh_url": "git@github.com:apify/crawlee.git",
     "clone_url": "https://github.com/apify/crawlee.git",
     "svn_url": "https://github.com/apify/crawlee",
     "homepage": "https://crawlee.dev",
-    "size": 150339,
-    "stargazers_count": 19175,
-    "watchers_count": 19175,
+    "size": 150350,
+    "stargazers_count": 19176,
+    "watchers_count": 19176,
     "language": "TypeScript",
     "has_issues": true,
     "has_projects": true,
@@ -34057,7 +34057,7 @@
     "visibility": "public",
     "forks": 957,
     "open_issues": 182,
-    "watchers": 19175,
+    "watchers": 19176,
     "default_branch": "master",
     "permissions": {
       "admin": false,
@@ -34069,7 +34069,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:04.940Z",
+    "scannedAt": "2025-08-26T01:22:59.615Z",
     "qualityScore": {
       "total": 87,
       "grade": "A",
@@ -34270,7 +34270,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:09.482Z",
+    "scannedAt": "2025-08-26T01:23:04.302Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -34477,7 +34477,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:14.189Z",
+    "scannedAt": "2025-08-26T01:23:08.876Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -34686,7 +34686,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:21.345Z",
+    "scannedAt": "2025-08-26T01:23:16.063Z",
     "qualityScore": {
       "total": 89,
       "grade": "A",
@@ -34917,7 +34917,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:34.549Z",
+    "scannedAt": "2025-08-26T01:23:29.222Z",
     "qualityScore": {
       "total": 58,
       "grade": "D",
@@ -35066,7 +35066,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:39.139Z",
+    "scannedAt": "2025-08-26T01:23:33.764Z",
     "qualityScore": {
       "total": 84,
       "grade": "A",
@@ -35258,7 +35258,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:46.077Z",
+    "scannedAt": "2025-08-26T01:23:40.785Z",
     "qualityScore": {
       "total": 85,
       "grade": "A",
@@ -35453,7 +35453,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:53.049Z",
+    "scannedAt": "2025-08-26T01:23:47.752Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -35665,7 +35665,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:04:57.757Z",
+    "scannedAt": "2025-08-26T01:23:52.361Z",
     "qualityScore": {
       "total": 92,
       "grade": "A+",
@@ -35864,7 +35864,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T01:05:02.287Z",
+    "scannedAt": "2025-08-26T01:23:56.839Z",
     "qualityScore": {
       "total": 59,
       "grade": "D",
