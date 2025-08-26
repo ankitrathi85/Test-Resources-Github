@@ -15,14 +15,18 @@ const requiredFiles = [
   'package.json',
   'src/index.js',
   'src/scanner.js',
-  'src/generator.js',
+  'src/staged-scanner.js',
+  'src/generator.js', 
+  'src/staged-generator.js',
   'src/config/categories.js',
   'src/utils/github.js',
   'src/utils/scoring.js',
   'src/utils/helpers.js',
   'assets/css/style.css',
   'assets/js/main.js',
-  '.github/workflows/update-resources.yml'
+  '.github/workflows/update-resources.yml',
+  'manual-scan.js',
+  'inspect-data.js'
 ];
 
 console.log('📁 Checking required files...');
@@ -117,20 +121,25 @@ console.log('\n🎉 All tests passed! Application structure is valid.\n');
 
 console.log('📋 Next steps:');
 console.log('1. Copy .env.example to .env and add your GitHub token');
-console.log('2. Run: npm run scan');
-console.log('3. Run: npm run generate');
+console.log('2. Run: npm run staged-scan (recommended)');
+console.log('3. Run: npm run staged-generate');
 console.log('4. Run: npm run dev (to test locally)');
-console.log('5. Deploy to GitHub Pages using the automated workflow\n');
+console.log('5. Deploy to GitHub Pages using the daily automated workflow\n');
 
 console.log('🔧 Available commands:');
-console.log('- npm run scan      # Scan GitHub repositories');
-console.log('- npm run generate  # Generate static website');
-console.log('- npm run build     # Scan + generate');
-console.log('- npm run dev       # Start development server');
-console.log('- npm run deploy    # Deploy to GitHub Pages');
-console.log('- npm test          # Run this validation script\n');
+console.log('- npm run staged-scan    # Scan one category (recommended)');
+console.log('- npm run staged-generate # Generate website from current data');
+console.log('- npm run staged-build   # Staged scan + generate');
+console.log('- npm run scan           # Legacy: Full scan (may timeout)');
+console.log('- npm run generate       # Legacy: Full generate');
+console.log('- npm run build          # Legacy: Full build');
+console.log('- npm run dev            # Start development server');
+console.log('- npm test               # Run this validation script');
+console.log('- node inspect-data.js   # View scan progress');
+console.log('- node manual-scan.js    # Manual category scanning\n');
 
 console.log('📚 Documentation:');
-console.log('- README.md    # Project overview and features');
-console.log('- SETUP.md     # Comprehensive setup guide');
-console.log('- .env.example # Environment configuration\n');
+console.log('- README.md         # Project overview and staged scanning approach');
+console.log('- .env.example      # Environment configuration');
+console.log('- manual-scan.js    # Manual category scanning tool');
+console.log('- inspect-data.js   # Data inspection and progress viewer\n');

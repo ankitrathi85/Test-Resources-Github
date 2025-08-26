@@ -1,14 +1,18 @@
 {
   "name": "test-automation-resources",
   "version": "1.0.0",
-  "description": "A comprehensive scanner and website generator for test automation resources on GitHub",
+  "description": "A comprehensive staged scanner and website generator for test automation resources on GitHub with progressive data collection",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "scan": "node src/scanner.js",
+    "staged-scan": "node src/staged-scanner.js",
     "generate": "node src/generator.js",
+    "staged-generate": "node src/staged-generator.js",
     "build": "npm run scan && npm run generate",
+    "staged-build": "npm run staged-scan && npm run staged-generate",
     "dev": "npm run build && http-server dist -p 8080",
+    "dev-staged": "npm run staged-generate && http-server dist -p 8080",
     "test": "node test.js",
     "lint": "eslint src/**/*.js"
   },

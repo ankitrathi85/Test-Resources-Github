@@ -1,20 +1,20 @@
-name: Update Test Automation Resources
+name: Update Test Automation Resources (Staged)
 
 on:
   schedule:
-    - cron: '0 2 */3 * *'  # Every 3 days at 2 AM UTC
+    - cron: '0 2 * * *'    # Daily at 2 AM UTC (one category per day)
   workflow_dispatch:        # Manual trigger
   push:
     branches: [main]
     paths: ['src/**', 'package.json']  # Only run when code changes
 
 jobs:
-  scan-and-deploy:
+  staged-scan-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20     # Reduced timeout for single category
     
     permissions:
-      contents: read
+      contents: write       # Need write for committing data
       pages: write
       id-token: write
     
@@ -25,7 +25,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -35,21 +38,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Create .env file
-        run: |
-          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" > .env
-          echo "RATE_LIMIT_DELAY=2000" >> .env
-          echo "MIN_STARS=10" >> .env
-          echo "MAX_AGE_MONTHS=18" >> .env
-          echo "OUTPUT_DIR=dist" >> .env
+      - name: Create data directory
+        run: mkdir -p data
         
-      - name: Scan GitHub repositories
-        run: npm run scan
+      - name: Run staged repository scan
+        run: node src/staged-scanner.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RATE_LIMIT_DELAY: 2000
+          MIN_STARS: 10
+          MAX_AGE_MONTHS: 18
+          MAX_REPOS_PER_SEARCH: 3
+          MAX_REPOS_PER_CATEGORY: 15
+          CATEGORY_TIMEOUT_MINUTES: 12
           
       - name: Generate static website
-        run: npm run generate
+        run: node src/staged-generator.js
+        
+      - name: Commit and push data updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "Update scan data: $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -63,14 +81,13 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-  # Backup job to handle failures gracefully
   notify-failure:
-    needs: scan-and-deploy
-    if: failure()
     runs-on: ubuntu-latest
+    needs: staged-scan-and-deploy
+    if: failure()
+    
     steps:
       - name: Notify on failure
         run: |
-          echo "❌ Resource scan and deployment failed"
-          echo "Check the logs for more details"
-          exit 1
+          echo "🚨 Staged scan workflow failed!"
+          echo "Check the logs at: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

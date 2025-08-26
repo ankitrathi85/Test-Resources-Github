@@ -241,7 +241,130 @@ body {
   font-size: 1rem;
 }
 
-/* Hero Section */
+/* Progress Badge Styles */
+.progress-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.progress-badge.green {
+  border-color: var(--success-color);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.progress-badge.yellow {
+  border-color: var(--warning-color);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.progress-badge.orange {
+  border-color: #f97316;
+  background: rgba(249, 115, 22, 0.1);
+}
+
+.progress-text {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.progress-bar {
+  width: 200px;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-percent {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+/* Category Card Status Styles */
+.category-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.category-card.pending {
+  opacity: 0.7;
+  border: 2px dashed var(--border-color);
+}
+
+.category-card.scanned {
+  border: 2px solid var(--success-color);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.scan-status {
+  margin-left: auto;
+  font-size: 18px;
+}
+
+.scan-status.pending {
+  color: var(--warning-color);
+}
+
+.scan-status.scanned {
+  color: var(--success-color);
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-indicator.complete {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-indicator.in-progress {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-indicator.pending {
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--text-muted);
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+/* Enhanced Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--primary-color), #818cf8);
   color: white;
