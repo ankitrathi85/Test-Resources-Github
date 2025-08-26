@@ -625,27 +625,27 @@ class StagedGenerator {
                     <div class="score-grid">
                         <div class="score-item">
                             <span class="score-label">Popularity</span>
-                            <span class="score-value">${repo.qualityScore?.popularity || 0}/25</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.popularity || 0}/25</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Activity</span>
-                            <span class="score-value">${repo.qualityScore?.activity || 0}/20</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.activity || 0}/20</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Documentation</span>
-                            <span class="score-value">${repo.qualityScore?.documentation || 0}/20</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.documentation || 0}/20</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Community</span>
-                            <span class="score-value">${repo.qualityScore?.community || 0}/15</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.community || 0}/15</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Maintenance</span>
-                            <span class="score-value">${repo.qualityScore?.maintenance || 0}/10</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.maintenance || 0}/10</span>
                         </div>
                         <div class="score-item">
                             <span class="score-label">Code Quality</span>
-                            <span class="score-value">${repo.qualityScore?.codeQuality || 0}/10</span>
+                            <span class="score-value">${repo.qualityScore?.breakdown?.codeQuality || 0}/10</span>
                         </div>
                     </div>
                 </div>
