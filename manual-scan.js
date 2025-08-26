@@ -31,7 +31,16 @@ async function scanSpecificCategory(categoryKey) {
   const scanner = new StagedScanner();
   
   // Override the getNextCategory method to return our specific category
-  scanner.getNextCategory = () => ({ category: categoryKey, isNewCycle: false });
+  scanner.getNextCategory = (scanStatus) => {
+    // For manual scans, we need to temporarily remove the category from completed
+    // to ensure it gets properly rescanned without affecting other categories
+    if (scanStatus.completedCategories && scanStatus.completedCategories.includes(categoryKey)) {
+      // Create a copy and remove this category temporarily for the scan
+      const tempCompleted = scanStatus.completedCategories.filter(cat => cat !== categoryKey);
+      scanStatus.completedCategories = tempCompleted;
+    }
+    return { category: categoryKey, isNewCycle: false };
+  };
   
   try {
     const result = await scanner.run();
