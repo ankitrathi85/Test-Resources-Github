@@ -153,7 +153,7 @@ class StagedGenerator {
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="brand-link">
+            <a href="index.html" class="brand-link">
                 <span class="brand-icon">🧪</span>
                 Test Automation Resources
             </a>
