@@ -2,16 +2,35 @@ name: Update Test Automation Resources (Staged)
 
 on:
   schedule:
-    - cron: '0 2 * * *'    # Daily at 2 AM UTC (one category per day)
-  workflow_dispatch:        # Manual trigger
+    - cron: '0 2 * * *'    # Daily at 2 AM UTC (automatically picks next category)
+  workflow_dispatch:        # Manual trigger with category selection
+    inputs:
+      category:
+        description: 'Category to scan manually'
+        required: true
+        type: choice
+        options:
+          - 'web-automation'
+          - 'mobile-automation'
+          - 'api-testing'
+          - 'unit-testing'
+          - 'performance-testing'
+          - 'test-frameworks'
+          - 'utility-tools'
+          - 'ci-cd-testing'
+      force_rescan:
+        description: 'Force rescan even if category was recently scanned'
+        required: false
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths: ['src/**', 'package.json']  # Only run when code changes
 
 jobs:
-  staged-scan-and-deploy:
+  scan-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20     # Reduced timeout for single category
+    timeout-minutes: 20     # Timeout for single category scan
     
     permissions:
       contents: write       # Need write for committing data
@@ -41,16 +60,24 @@ jobs:
       - name: Create data directory
         run: mkdir -p data
         
-      - name: Run staged repository scan
-        run: node src/staged-scanner.js
+      - name: Run repository scan
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "🎯 Manual scan triggered for: ${{ github.event.inputs.category }}"
+            node manual-scan.js "${{ github.event.inputs.category }}"
+          else
+            echo "🔄 Scheduled scan - automatically selecting next category"
+            node src/staged-scanner.js
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RATE_LIMIT_DELAY: 2000
           MIN_STARS: 10
           MAX_AGE_MONTHS: 18
           MAX_REPOS_PER_SEARCH: 3
-          MAX_REPOS_PER_CATEGORY: 15
-          CATEGORY_TIMEOUT_MINUTES: 12
+          MAX_REPOS_PER_CATEGORY: 25
+          CATEGORY_TIMEOUT_MINUTES: 15
+          FORCE_RESCAN: ${{ github.event.inputs.force_rescan }}
           
       - name: Generate static website
         run: node src/staged-generator.js
@@ -59,11 +86,15 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add data/
+          git add data/ dist/
           if git diff --staged --quiet; then
             echo "No data changes to commit"
           else
-            git commit -m "Update scan data: $(date '+%Y-%m-%d %H:%M')"
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              git commit -m "Manual scan: ${{ github.event.inputs.category }} - $(date '+%Y-%m-%d %H:%M')"
+            else
+              git commit -m "Scheduled scan update - $(date '+%Y-%m-%d %H:%M')"
+            fi
             git push
           fi
         env:
@@ -83,7 +114,7 @@ jobs:
 
   notify-failure:
     runs-on: ubuntu-latest
-    needs: staged-scan-and-deploy
+    needs: scan-and-deploy
     if: failure()
     
     steps:
