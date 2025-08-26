@@ -24191,7 +24191,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:27.477Z",
+    "scannedAt": "2025-08-26T02:23:07.358Z",
     "qualityScore": {
       "total": 96,
       "grade": "A+",
@@ -24317,7 +24317,7 @@
             "state": "uploaded",
             "size": 44189101,
             "digest": "sha256:d89d0fa686890ab5f260429023aa022a8fe004d29669e104d411e9eab2082421",
-            "download_count": 23,
+            "download_count": 25,
             "created_at": "2025-08-26T00:17:51Z",
             "updated_at": "2025-08-26T00:17:54Z",
             "browser_download_url": "https://github.com/SeleniumHQ/selenium/releases/download/nightly/selenium-server-4.36.0-SNAPSHOT.jar"
@@ -24497,7 +24497,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:31.879Z",
+    "scannedAt": "2025-08-26T02:23:11.988Z",
     "qualityScore": {
       "total": 81,
       "grade": "A",
@@ -24698,7 +24698,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:36.175Z",
+    "scannedAt": "2025-08-26T02:23:16.280Z",
     "qualityScore": {
       "total": 67,
       "grade": "C",
@@ -24857,7 +24857,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:42.905Z",
+    "scannedAt": "2025-08-26T02:23:22.946Z",
     "qualityScore": {
       "total": 87,
       "grade": "A",
@@ -25058,7 +25058,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:47.265Z",
+    "scannedAt": "2025-08-26T02:23:27.407Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -25265,7 +25265,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:51.675Z",
+    "scannedAt": "2025-08-26T02:23:31.934Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -25433,7 +25433,7 @@
     "mirror_url": null,
     "archived": false,
     "disabled": false,
-    "open_issues_count": 1339,
+    "open_issues_count": 1335,
     "license": {
       "key": "mit",
       "name": "MIT License",
@@ -25461,7 +25461,7 @@
     ],
     "visibility": "public",
     "forks": 3312,
-    "open_issues": 1339,
+    "open_issues": 1335,
     "watchers": 48835,
     "default_branch": "develop",
     "permissions": {
@@ -25474,7 +25474,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:06:58.553Z",
+    "scannedAt": "2025-08-26T02:23:38.587Z",
     "qualityScore": {
       "total": 89,
       "grade": "A",
@@ -25705,7 +25705,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:11.278Z",
+    "scannedAt": "2025-08-26T02:23:51.232Z",
     "qualityScore": {
       "total": 58,
       "grade": "D",
@@ -25854,7 +25854,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:15.648Z",
+    "scannedAt": "2025-08-26T02:23:55.594Z",
     "qualityScore": {
       "total": 84,
       "grade": "A",
@@ -26046,7 +26046,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:22.292Z",
+    "scannedAt": "2025-08-26T02:24:02.297Z",
     "qualityScore": {
       "total": 85,
       "grade": "A",
@@ -26241,7 +26241,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:28.984Z",
+    "scannedAt": "2025-08-26T02:24:08.871Z",
     "qualityScore": {
       "total": 91,
       "grade": "A+",
@@ -26408,7 +26408,7 @@
     "mirror_url": null,
     "archived": false,
     "disabled": false,
-    "open_issues_count": 193,
+    "open_issues_count": 191,
     "license": {
       "key": "mit",
       "name": "MIT License",
@@ -26440,7 +26440,7 @@
     ],
     "visibility": "public",
     "forks": 745,
-    "open_issues": 193,
+    "open_issues": 191,
     "watchers": 4189,
     "default_branch": "3.x",
     "permissions": {
@@ -26453,7 +26453,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:33.401Z",
+    "scannedAt": "2025-08-26T02:24:13.199Z",
     "qualityScore": {
       "total": 92,
       "grade": "A+",
@@ -26652,7 +26652,7 @@
     "score": 1,
     "category": "web-automation",
     "categoryName": "Web Automation",
-    "scannedAt": "2025-08-26T02:07:37.769Z",
+    "scannedAt": "2025-08-26T02:24:17.555Z",
     "qualityScore": {
       "total": 59,
       "grade": "D",
