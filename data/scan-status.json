@@ -1,5 +1,5 @@
 {
-  "lastScannedCategory": "ci-cd-testing",
+  "lastScannedCategory": "test-frameworks",
   "completedCategories": [
     "web-automation",
     "mobile-automation",
@@ -7,9 +7,10 @@
     "unit-testing",
     "performance-testing",
     "utility-tools",
-    "ci-cd-testing"
+    "ci-cd-testing",
+    "test-frameworks"
   ],
   "currentCycle": 2,
-  "lastFullScan": "2025-08-26T00:53:36.849Z",
-  "lastScanTime": "2025-08-26T01:49:38.607Z"
+  "lastFullScan": "2025-08-26T01:52:55.603Z",
+  "lastScanTime": "2025-08-26T01:52:55.603Z"
 }
