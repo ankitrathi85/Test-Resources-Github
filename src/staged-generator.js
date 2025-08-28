@@ -93,8 +93,35 @@ class StagedGenerator {
     const categoryCards = Object.entries(categories).map(([key, category]) => {
       const repos = repositoriesByCategory[key] || [];
       const isScanned = scanStatus.completedCategories.includes(key);
-      const statusClass = isScanned ? 'scanned' : 'pending';
-      const statusText = isScanned ? `${repos.length} repositories` : 'Pending scan...';
+      const categoryTimestamp = scanStatus.categoryTimestamps?.[key];
+      const hasData = repos.length > 0;
+      
+      // Determine status and styling
+      let statusClass, statusIcon, statusText;
+      if (hasData && categoryTimestamp) {
+        const age = moment().diff(moment(categoryTimestamp), 'days');
+        if (age <= 1) {
+          statusClass = 'fresh';
+          statusIcon = '✅';
+          statusText = `${repos.length} repositories`;
+        } else if (age <= 7) {
+          statusClass = 'recent';
+          statusIcon = '🔄';
+          statusText = `${repos.length} repositories (${age}d old)`;
+        } else {
+          statusClass = 'stale';
+          statusIcon = '⏰';
+          statusText = `${repos.length} repositories (${age}d old)`;
+        }
+      } else if (hasData) {
+        statusClass = 'scanned';
+        statusIcon = '✅';
+        statusText = `${repos.length} repositories`;
+      } else {
+        statusClass = 'pending';
+        statusIcon = '⏳';
+        statusText = 'Pending scan...';
+      }
       
       return `
         <div class="category-card ${statusClass}" data-category="${key}">
@@ -102,7 +129,7 @@ class StagedGenerator {
             <span class="category-icon">${category.icon}</span>
             <h3>${category.name}</h3>
             <span class="scan-status ${statusClass}">
-              ${isScanned ? '✅' : '⏳'}
+              ${statusIcon}
             </span>
           </div>
           <p class="category-description">${category.description}</p>
@@ -112,7 +139,7 @@ class StagedGenerator {
               <span class="avg-score">Avg: ${Math.round(repos.reduce((sum, r) => sum + (r.qualityScore?.total || 0), 0) / repos.length)}/100</span>
             ` : ''}
           </div>
-          ${repos.length > 0 ? `<a href="categories/${Helpers.slugify(category.name)}.html" class="view-category">View Details →</a>` : ''}
+          ${hasData ? `<a href="categories/${Helpers.slugify(category.name)}.html" class="view-category">View Details →</a>` : ''}
         </div>
       `;
     }).join('');
