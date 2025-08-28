@@ -50,22 +50,29 @@ class StagedScanner {
 
   getNextCategory(scanStatus) {
     const allCategories = Object.keys(categories);
-    const completed = scanStatus.completedCategories || [];
     
-    // Find next unscanned category
-    const remaining = allCategories.filter(cat => !completed.includes(cat));
-    
-    if (remaining.length === 0) {
-      // All categories scanned, start new cycle
-      return {
-        category: allCategories[0],
-        isNewCycle: true
-      };
+    // Initialize category timestamps if not present
+    if (!scanStatus.categoryTimestamps) {
+      scanStatus.categoryTimestamps = {};
     }
     
+    // Find the category that was updated longest ago (or never updated)
+    const oldestCategory = allCategories.reduce((oldest, cat) => {
+      const catTime = scanStatus.categoryTimestamps[cat] || 0;
+      const oldestTime = scanStatus.categoryTimestamps[oldest] || 0;
+      return catTime < oldestTime ? cat : oldest;
+    }, allCategories[0]);
+    
+    // Determine if this starts a new cycle
+    // New cycle = all categories have been scanned at least once in current cycle
+    const allCategoriesHaveTimestamps = allCategories.every(cat => 
+      scanStatus.categoryTimestamps[cat] && 
+      new Date(scanStatus.categoryTimestamps[cat]) > new Date(scanStatus.lastFullScan || 0)
+    );
+    
     return {
-      category: remaining[0],
-      isNewCycle: false
+      category: oldestCategory,
+      isNewCycle: allCategoriesHaveTimestamps
     };
   }
 
@@ -247,7 +254,9 @@ class StagedScanner {
     if (isNewCycle) {
       console.log(`🔄 Starting new scan cycle ${scanStatus.currentCycle + 1}`);
       scanStatus.currentCycle = (scanStatus.currentCycle || 0) + 1;
-      scanStatus.completedCategories = [];
+      // NOTE: We deliberately DON'T clear completedCategories to preserve stale data
+      // Each category will be marked as completed when it gets refreshed in this cycle
+      console.log(`📚 Preserving existing data from ${scanStatus.completedCategories?.length || 0} categories`);
     }
     
     console.log(`📂 Current category: ${nextCategory}`);
@@ -276,6 +285,13 @@ class StagedScanner {
     if (!scanStatus.completedCategories.includes(nextCategory)) {
       scanStatus.completedCategories.push(nextCategory);
     }
+    
+    // Track when this category was last updated
+    if (!scanStatus.categoryTimestamps) {
+      scanStatus.categoryTimestamps = {};
+    }
+    scanStatus.categoryTimestamps[nextCategory] = new Date().toISOString();
+    
     scanStatus.lastScannedCategory = nextCategory;
     scanStatus.lastScanTime = new Date().toISOString();
     
