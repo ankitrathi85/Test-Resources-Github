@@ -1,13 +1,15 @@
 {
-  "lastScannedCategory": "web-automation",
+  "lastScannedCategory": "api-testing",
   "completedCategories": [
     "web-automation",
-    "mobile-automation"
+    "mobile-automation",
+    "api-testing"
   ],
   "currentCycle": 5,
   "lastFullScan": "2025-08-26T22:35:34.435Z",
-  "lastScanTime": "2025-08-28T21:46:27.788Z",
+  "lastScanTime": "2025-08-29T02:17:46.349Z",
   "categoryTimestamps": {
-    "web-automation": "2025-08-28T21:46:27.788Z"
+    "web-automation": "2025-08-28T21:46:27.788Z",
+    "api-testing": "2025-08-29T02:17:46.349Z"
   }
 }
